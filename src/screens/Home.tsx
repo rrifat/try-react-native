@@ -1,6 +1,7 @@
 import { ParamListBase } from "@react-navigation/native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, Text } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import PalettePreview from "../components/PaletteReview";
 
 const RAINBOW = [
@@ -56,6 +57,11 @@ const Home = ({ navigation }: HomeProps) => (
         palette={item}
       />
     )}
+    ListHeaderComponent={
+      <TouchableOpacity onPress={() => navigation.navigate("AddNewPalette")}>
+        <Text>Launch A Modal</Text>
+      </TouchableOpacity>
+    }
   />
 );
 
